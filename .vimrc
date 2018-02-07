@@ -44,14 +44,18 @@ set pastetoggle=
 " Показывать табы в начале строки точками
 set listchars=tab:..
 set list
-
+" Рабочие команды на кирилице
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
 highlight lCursor guifg=NONE guibg=Cyan " Подстветка скобок, кавычек
 set nobackup " Отключаем backups
 set nowb
 set noswapfile
-set tabstop=2 shiftwidth=2 expandtab
+set tabstop=4 shiftwidth=4 expandtab
 set smarttab
 set autoindent
+set visualbell " Отключить системный beep
 
 map <C-k> <C-w><Up>
 map <C-j> <C-w><Down>

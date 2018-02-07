@@ -107,7 +107,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias addrs='cat ~/Desktop/notes/proanalytics'
-alias notes='vim ~/Desktop/notes/'
+alias addrs='cat ~/proanalytics'
+alias tab='xmodmap -e "keycode 66 = Tab"'
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
-eval $(thefuck --alias)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

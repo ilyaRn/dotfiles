@@ -55,9 +55,8 @@ fi
 # exec xterm -geometry 80x66+0+0 -name login
 
 xrandr --output "VGA1" --auto --primary --output "HDMI1" --auto --right-of "VGA1" &
-xrdb -merge ~/.Xresources &
 setxkbmap -layout "us,ru" -option grp:alt_shift_toggle,grp_led:scroll,ctrl:nocaps &
-xmodmap -e "keycode 66 = Tab" &
+# xmodmap -e "keycode 66 = Tab" &
 udiskie &
 # autocutsel -fork &
 # autocutsel -selection PRIMARY -fork &
