@@ -49,17 +49,15 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 # twm &
-# xclock -geometry 50x50-1+1 &
-# xterm -geometry 80x50+494+51 &
-# xterm -geometry 80x20+494-0 &
-# exec xterm -geometry 80x66+0+0 -name login
+#
+xrandr --output "VGA-1" --auto --primary --output "DVI-D-1" --auto --right-of "VGA-1"
 
-xrandr --output "VGA1" --auto --primary --output "HDMI1" --auto --right-of "VGA1" &
 setxkbmap -layout "us,ru" -option grp:alt_shift_toggle,grp_led:scroll,ctrl:nocaps &
+# setxkbmap -layout "us,us(dvp),ru" -option grp:alt_shift_toggle,grp_led:scroll,ctrl:nocaps &
 # xmodmap -e "keycode 66 = Tab" &
 udiskie &
-# autocutsel -fork &
-# autocutsel -selection PRIMARY -fork &
+albert &
+xset -b &
 
 
 exec awesome

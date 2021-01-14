@@ -109,8 +109,13 @@ fi
 
 alias addrs='cat ~/proanalytics'
 alias tab='xmodmap -e "keycode 66 = Tab"'
+alias vim='nvim'
 #so as not to be disturbed by Ctrl-S ctrl-Q in terminals:
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/home/ilya/Apps
+export EDITOR=nvim

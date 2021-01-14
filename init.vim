@@ -6,11 +6,13 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-commentary'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'itchyny/vim-gitbranch'
 Plug 'itchyny/lightline.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'moll/vim-node'
+Plug 'fatih/vim-go'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'w0rp/ale'
 call plug#end()
 
 " ---------------------------------------
@@ -78,6 +80,7 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+set scrolloff=10
 
 "" Directories for swp files
 set nobackup
@@ -86,6 +89,7 @@ set noswapfile
 set fileformats=unix,dos,mac
 set showcmd
 set shell=/bin/bash
+set autowrite
 
 " Allow to copy/paste between VIM instances
 " "copy the current visual selection to ~/.vbuf
@@ -104,18 +108,20 @@ set number
 
 let no_buffers_menu=1
 if !exists('g:not_finish_vimplug')
-  colorscheme xoria256
+  " colorscheme xoria256
+  set background=light
+  colorscheme PaperColor
 endif
 
 set mousemodel=popup
 set t_Co=256
 set gfn=Monospace\ 10
-set listchars=tab:..
+set listchars=tab:\ \ 
 set list
 
 " lightline
 let g:lightline = {
-            \ 'colorscheme': 'powerline',
+            \ 'colorscheme': 'PaperColor',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -124,4 +130,16 @@ let g:lightline = {
             \   'gitbranch': 'gitbranch#name'
             \ },
             \ }
-set noshowmode
+" ---------------------------------------
+" golang
+" ---------------------------------------
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
